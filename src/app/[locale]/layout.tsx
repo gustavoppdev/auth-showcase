@@ -12,6 +12,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 
 // Global Styles
 import "./globals.css";
+import NavigationBar from "@/components/layout/NavigationBar";
+import Footer from "@/components/layout/Footer";
 
 const sfProDisplay = localFont({
   src: [
@@ -53,7 +55,9 @@ export default async function RootLayout({ children, params }: Props) {
 
   return (
     <html suppressHydrationWarning lang={locale}>
-      <body className={`${sfProDisplay.className} antialiased`}>
+      <body
+        className={`${sfProDisplay.className} antialiased flex flex-col min-h-dvh`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -61,7 +65,11 @@ export default async function RootLayout({ children, params }: Props) {
           disableTransitionOnChange
           forcedTheme="light"
         >
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <NextIntlClientProvider>
+            <NavigationBar />
+            {children}
+            <Footer />
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>

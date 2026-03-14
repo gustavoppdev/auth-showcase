@@ -1,5 +1,37 @@
 {
-  "HomePage": {
-    "title": "Olá, mundo!"
+  "AuthForm": {
+    "signIn": {
+      "greeting": "Bom te ver de volta 👋",
+      "greetingDescription": "Hoje é um novo dia. Ele pertence a você. Comece agora para dar vida às suas ideias.",
+      "cta": "Não tem uma conta? <link>Cadastre-se</link>"
+    },
+    "signUp": {
+      "greeting": "Junte-se a nós ✨",
+      "greetingDescription": "O primeiro passo para o sucesso começa aqui. Crie sua conta e transforme seus planos em realidade.",
+      "cta": "Já tem uma conta? <link>Entrar</link>"
+    },
+    "email": "E-mail",
+    "emailPlaceholder": "Exemplo@email.com",
+    "password": "Senha",
+    "passwordPlaceholder": "No mínimo 8 caracteres",
+    "confirmPassword": "Confirmar Senha",
+    "confirmPasswordPlaceholder": "Digite a senha novamente",
+    "forgotPassword": "Esqueceu a senha?",
+    "signInBtn": "Entrar",
+    "signUpBtn": "Criar Conta",
+    "continueWith": "Ou continue com",
+    "showPassword": "Mostrar senha",
+    "hidePassword": "Ocultar senha",
+    "Errors": {
+      "minEmailError": "Por favor, insira seu e-mail",
+      "minPasswordError": "A senha deve ter no minímo 8 caracteres",
+      "maxPasswordError": "A senha deve ter no máximo 20 caracteres",
+      "mustContainUppercase": "Inclua pelo menos uma letra maiúscula",
+      "mustContainLowercase": "Inclua pelo menos uma letra minúscula",
+      "mustContainNumber": "Adicione pelo menos um número",
+      "mustContainSpecialCharacter": "Use pelo menos um caractere especial (ex: @, #)",
+      "invalidEmailError": "Por favor, insira um endereço de e-mail válido",
+      "passwordsDoNotMatch": "As senhas digitadas não coincidem"
+    }
   }
 }

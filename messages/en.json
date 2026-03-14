@@ -1,5 +1,37 @@
 {
-  "HomePage": {
-    "title": "Hello world!"
+  "AuthForm": {
+    "signIn": {
+      "greeting": "Welcome Back 👋",
+      "greetingDescription": "Today is a new day. It's your day. You shape it. Sign in to get started.",
+      "cta": "Don't have an account? <link>Sign up</link>"
+    },
+    "signUp": {
+      "greeting": "Join us ✨",
+      "greetingDescription": "The first step toward success starts here. Sign up to turn your ideas into reality.",
+      "cta": "Already have an account? <link>Sign in</link>"
+    },
+    "email": "Email",
+    "emailPlaceholder": "Example@email.com",
+    "password": "Password",
+    "passwordPlaceholder": "At least 8 characters",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Repeat your password",
+    "forgotPassword": "Forgot Password?",
+    "signInBtn": "Sign In",
+    "signUpBtn": "Sign Up",
+    "continueWith": "Or continue with",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "Errors": {
+      "minEmailError": "Please enter your email",
+      "minPasswordError": "Password is required",
+      "maxPasswordError": "Password is too long (max 20 characters)",
+      "mustContainUppercase": "Must include at least one uppercase letter",
+      "mustContainLowercase": "Must include at least one lowercase letter",
+      "mustContainNumber": "Must include at least one number",
+      "mustContainSpecialCharacter": "Must include a special character (e.g., @, #)",
+      "invalidEmailError": "Please enter a valid email address",
+      "passwordsDoNotMatch": "The passwords you entered do not match"
+    }
   }
 }
