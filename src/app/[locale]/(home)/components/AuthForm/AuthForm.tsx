@@ -19,7 +19,7 @@ import FormInput from "./FormInput";
 import OrContinueWith from "./OrContinueWith";
 
 // Schemas
-import { signInSchema, signUpSchema } from "@/lib/schemas";
+import { signInSchema, signUpSchema } from "@/app/[locale]/(home)/schemas";
 import { useEffect } from "react";
 
 export const AuthForm = () => {
@@ -101,6 +101,7 @@ export const AuthForm = () => {
           name="email"
           label={t("email")}
           placeholder={t("emailPlaceholder")}
+          type="email"
         />
         <FormInput
           control={form.control}
