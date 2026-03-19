@@ -42,7 +42,7 @@ describe("AuthForm - integração", () => {
 
     // 3. O Zod é assincrono, então o recomendado pelo Testing Library é usar "findByText"
     // Observação: enviando vazio, o Zod costuma disparar o erro de campo obrigatório (minEmailError)
-    const erroEmail = messages.AuthForm.Errors.invalidEmailError;
+    const erroEmail = messages.AuthForm.Errors.minEmailError;
     expect(await screen.findByText(erroEmail)).toBeInTheDocument();
   });
 });
