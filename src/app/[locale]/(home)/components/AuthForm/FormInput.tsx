@@ -52,7 +52,7 @@ const FormInput = <T extends FieldValues>({
               {...field}
               id={field.name}
               placeholder={placeholder}
-              className="p-4 h-10.5 lg:h-12"
+              className="p-4 h-10.5 lg:h-12 text-sm"
               value={field.value ?? ""}
               type={password ? (showPassword ? "text" : "password") : type}
             />

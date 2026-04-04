@@ -27,7 +27,7 @@ describe("Conjunto de Testes: Schemas de Autenticação", () => {
     it("should reject an empty email and return 'minEmailError'.", () => {
       const result = emailSchema.safeParse("");
       expect(result.success).toBe(false);
-      // Verifica a mensagem de erro
+
       if (!result.success) {
         expect(result.error?.issues[0].message).toBe("minEmailError");
       }

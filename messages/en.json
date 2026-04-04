@@ -33,5 +33,167 @@
       "invalidEmailError": "Please enter a valid email address",
       "passwordsDoNotMatch": "The passwords you entered do not match"
     }
+  },
+  "Dashboard": {
+    "title": "Testing Showcase",
+    "description": "Welcome to the results dashboard. Here you will find a detailed report of the test suites applied to this project, ensuring the quality and reliability of the application.",
+    "overviewStats": {
+      "totalTests": {
+        "title": "Total Tests",
+        "description": "Total tests executed"
+      },
+      "coverage": {
+        "title": "Coverage",
+        "description": "Codebase lines"
+      },
+      "implementedTypes": {
+        "title": "Implemented Types",
+        "description": "Unit and Integration"
+      }
+    },
+    "tabs": {
+      "passed": "Passed",
+      "integration": {
+        "title": "Components & Integration",
+        "subtitle": "Authentication Component Tests",
+        "tests": {
+          "formSuite": {
+            "title": "Form Integration Tests",
+            "description": "Verifies AuthForm renders and UI behaviors based on state.",
+            "test1": {
+              "title": "Base Inputs Render",
+              "description": "Confirms properly rendered email and password inputs."
+            },
+            "test2": {
+              "title": "Hide Confirm Password",
+              "description": "Ensures the confirm password input is hidden from the login view."
+            },
+            "test3": {
+              "title": "Forgot Password Action",
+              "description": "Verifies the presence of account recovery options."
+            }
+          },
+          "signUpSuite": {
+            "title": "Sign Up Form Tests",
+            "description": "Verifies AuthForm correctly adapts its interface for registering new users.",
+            "test1": {
+              "title": "Render Confirm Password",
+              "description": "Checks if the confirm password input is visible in sign-up mode."
+            },
+            "test2": {
+              "title": "Hide Forgot Password",
+              "description": "Ensures the forgot password button is hidden during sign-up."
+            }
+          },
+          "uiInteractiveSuite": {
+            "title": "UI Interactivity Tests",
+            "description": "Checks interactive elements like toggling visibility and CTA navigation.",
+            "test1": {
+              "title": "Toggle Password Visibility",
+              "description": "Verifies that clicking the eye icon reveals and hides the password."
+            },
+            "test2": {
+              "title": "CTA Navigation",
+              "description": "Ensures clicking 'create an account' triggers page navigation."
+            }
+          },
+          "zodSubmissionSuite": {
+            "title": "Zod Validation & Submission",
+            "description": "Validates form submissions and Zod error handling.",
+            "test1": {
+              "title": "Display Zod Errors",
+              "description": "Confirms error messages display when submitting invalid payloads."
+            }
+          }
+        }
+      },
+
+      "unit": {
+        "title": "Unit (Schemas)",
+        "subtitle": "Schema Unit Tests (Zod)",
+        "tests": {
+          "emailSchemaSuite": {
+            "title": "Email Validation Tests",
+            "description": "Verifies the rules and constraints applied to email inputs.",
+            "test1": {
+              "title": "Approve Valid Email",
+              "description": "Ensures properly formatted emails are accepted."
+            },
+            "test2": {
+              "title": "Reject Invalid Email",
+              "description": "Triggers 'invalidEmailError' for bad formats."
+            },
+            "test3": {
+              "title": "Reject Empty Email",
+              "description": "Triggers 'minEmailError' when the field is totally empty."
+            },
+            "test4": {
+              "title": "Trim Whitespaces",
+              "description": "Ensures leading and trailing spaces are removed automatically."
+            }
+          },
+          "passwordSchemaSuite": {
+            "title": "Password Validation Tests",
+            "description": "Verifies all security constraints required for passwords.",
+            "test1": {
+              "title": "Approve Valid Password",
+              "description": "Ensures strong, correctly formatted passwords pass validation."
+            },
+            "test2": {
+              "title": "Reject Short Password",
+              "description": "Triggers 'minPasswordError' if the length is insufficient."
+            },
+            "test3": {
+              "title": "Reject Long Password",
+              "description": "Triggers 'maxPasswordError' if it exceeds 20 characters."
+            },
+            "test4": {
+              "title": "Require Uppercase",
+              "description": "Triggers 'mustContainUppercase' if no capital letters are found."
+            },
+            "test5": {
+              "title": "Require Lowercase",
+              "description": "Triggers 'mustContainLowercase' if no lowercase letters are found."
+            },
+            "test6": {
+              "title": "Require Number",
+              "description": "Triggers 'mustContainNumber' if no digits are included."
+            },
+            "test7": {
+              "title": "Require Special Character",
+              "description": "Triggers 'mustContainSpecialCharacter' if symbols are missing."
+            }
+          },
+          "signInSchemaSuite": {
+            "title": "Sign In Flow Tests",
+            "description": "Verifies combined payload validation for existing users.",
+            "test1": {
+              "title": "Valid Payload",
+              "description": "Checks if the schema approves properly formatted credentials."
+            },
+            "test2": {
+              "title": "Accumulate Errors",
+              "description": "Ensures multiple validation issues are caught simultaneously."
+            }
+          },
+          "signUpSchemaSuite": {
+            "title": "Sign Up Flow Tests",
+            "description": "Verifies account creation payload and confirm-password constraints.",
+            "test1": {
+              "title": "Valid Payload",
+              "description": "Checks if an ideal registration schema with matching passwords passes."
+            },
+            "test2": {
+              "title": "Passwords Do Not Match",
+              "description": "Triggers 'passwordsDoNotMatch' constraint if confirmation differs."
+            }
+          }
+        }
+      },
+      "e2e": {
+        "title": "End-to-End (Coming Soon)",
+        "subtitle": "End-to-End Tests"
+      }
+    }
   }
 }
