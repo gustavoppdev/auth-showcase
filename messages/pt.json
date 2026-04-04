@@ -33,5 +33,167 @@
       "invalidEmailError": "Por favor, insira um endereço de e-mail válido",
       "passwordsDoNotMatch": "As senhas digitadas não coincidem"
     }
+  },
+  "Dashboard": {
+    "title": "Showcase de Testes",
+    "description": "Bem-vindo ao painel de resultados. Aqui você encontra um relatório detalhado das suítes de testes aplicadas neste projeto, garantindo a qualidade e confiabilidade da aplicação.",
+    "overviewStats": {
+      "totalTests": {
+        "title": "Total de Testes",
+        "description": "Total de testes executados"
+      },
+      "coverage": {
+        "title": "Cobertura (Coverage)",
+        "description": "Linhas de código base"
+      },
+      "implementedTypes": {
+        "title": "Tipos Implementados",
+        "description": "Unitários e Integração"
+      }
+    },
+    "tabs": {
+      "passed": "Aprovado",
+      "integration": {
+        "title": "Componentes & Integração",
+        "subtitle": "Testes do Componente de Autentificação",
+        "tests": {
+          "formSuite": {
+            "title": "Testes de Integração do Formulário",
+            "description": "Verifica os campos e comportamentos do fluxo de autenticação via URL.",
+            "test1": {
+              "title": "Campos de E-mail e Senha",
+              "description": "Garante que os inputs base sejam exibidos com segurança."
+            },
+            "test2": {
+              "title": "Oculta Confirmar Senha",
+              "description": "Previne exibição de campos desnecessários no login."
+            },
+            "test3": {
+              "title": "Recuperação de Senha",
+              "description": "Valida se há opção de recuperação de conta visível."
+            }
+          },
+          "signUpSuite": {
+            "title": "Testes do Formulário de Cadastro",
+            "description": "Verifica se o AuthForm adapta corretamente a interface para novos usuários.",
+            "test1": {
+              "title": "Renderiza Confirmar Senha",
+              "description": "Garante a exibição do campo de confirmar senha na tela de cadastro."
+            },
+            "test2": {
+              "title": "Oculta Recuperação de Senha",
+              "description": "Previne exibição da opção esqueci a senha durante a criação de conta."
+            }
+          },
+          "uiInteractiveSuite": {
+            "title": "Testes de Interatividade UI",
+            "description": "Verifica os elementos interativos como visualização da senha e links CTA.",
+            "test1": {
+              "title": "Alternar Visibilidade da Senha",
+              "description": "Valida se ao clicar no ícone de olho a senha fica visível e vice-versa."
+            },
+            "test2": {
+              "title": "Navegação do CTA",
+              "description": "Garante que clicar no botão de criar conta redirecione a página."
+            }
+          },
+          "zodSubmissionSuite": {
+            "title": "Validação com Zod e Submissão",
+            "description": "Garante a correta validação dos campos e exibição de erros assíncronos.",
+            "test1": {
+              "title": "Exibir Erros do Zod",
+              "description": "Avalia se os erros saltam na tela ao tentar enviar um formulário vazio."
+            }
+          }
+        }
+      },
+
+      "unit": {
+        "title": "Unitários (Schemas)",
+        "subtitle": "Testes Unitários de Schemas (Zod)",
+        "tests": {
+          "emailSchemaSuite": {
+            "title": "Testes de Validação de E-mail",
+            "description": "Verifica os critérios de aprovação e erros do input de e-mail.",
+            "test1": {
+              "title": "Aprovar E-mail Válido",
+              "description": "Garante que formatos corretos passem na validação."
+            },
+            "test2": {
+              "title": "Rejeitar E-mail Inválido",
+              "description": "Dispara erro 'invalidEmailError' para formatos fora do padrão."
+            },
+            "test3": {
+              "title": "Rejeitar E-mail Vazio",
+              "description": "Aciona o erro 'minEmailError' caso o campo não seja preenchido."
+            },
+            "test4": {
+              "title": "Remover Espaços Vázios",
+              "description": "Confere a limpeza automática com 'trim' nos textos."
+            }
+          },
+          "passwordSchemaSuite": {
+            "title": "Testes de Validação de Senha",
+            "description": "Verifica os critérios de segurança exigidos para senhas fortes.",
+            "test1": {
+              "title": "Aprovar Senha Válida",
+              "description": "Garante que senhas dentro das regras sejam aceitas."
+            },
+            "test2": {
+              "title": "Rejeitar Senha Curta",
+              "description": "Dispara 'minPasswordError' caso falte caracteres mínimos."
+            },
+            "test3": {
+              "title": "Rejeitar Senha Longa",
+              "description": "Dispara 'maxPasswordError' se ultrapassar 20 caracteres."
+            },
+            "test4": {
+              "title": "Exigir Letra Maiúscula",
+              "description": "Aciona 'mustContainUppercase' se não houver letras em caixa alta."
+            },
+            "test5": {
+              "title": "Exigir Letra Minúscula",
+              "description": "Aciona 'mustContainLowercase' se faltar caixa baixa."
+            },
+            "test6": {
+              "title": "Exigir Números",
+              "description": "Aciona 'mustContainNumber' se a senha não tiver dígitos."
+            },
+            "test7": {
+              "title": "Exigir Caractere Especial",
+              "description": "Aciona 'mustContainSpecialCharacter' se não houver símbolos."
+            }
+          },
+          "signInSchemaSuite": {
+            "title": "Testes do Fluxo de Login",
+            "description": "Testa o payload completo com combinação de e-mail e senha inseridos.",
+            "test1": {
+              "title": "Aprovar Formulário",
+              "description": "Valida se um usuário preenchendo todos os dados corretamente é aprovado."
+            },
+            "test2": {
+              "title": "Erros Simultâneos",
+              "description": "Mostra a capacidade do Zod de barrar múltiplos erros de uma só vez."
+            }
+          },
+          "signUpSchemaSuite": {
+            "title": "Testes do Fluxo de Cadastro",
+            "description": "Testa regras específicas da criação de conta, como bater senhas iguais.",
+            "test1": {
+              "title": "Aprovar Formulário",
+              "description": "Aceita os dados caso todos os requisitos de segurança e matching passem."
+            },
+            "test2": {
+              "title": "Bloqueio de Senhas Diferentes",
+              "description": "Dispara 'passwordsDoNotMatch' sinalizando alerta diretamente na validação."
+            }
+          }
+        }
+      },
+      "e2e": {
+        "title": "End-to-End (Em breve)",
+        "subtitle": "Testes End-to-End"
+      }
+    }
   }
 }

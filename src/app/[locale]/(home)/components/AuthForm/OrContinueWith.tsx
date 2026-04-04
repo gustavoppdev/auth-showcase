@@ -21,35 +21,41 @@ const OrContinueWith = () => {
       </div>
 
       <div className="grid grid-cols-2 w-full gap-4">
-        <Button
-          variant={"secondary"}
-          size={"lg"}
-          className="h-11 lg:13 text-neutral-700 gap-4 w-full"
-        >
-          <Image
-            src={googleIcon}
-            alt="Google"
-            width={22}
-            height={22}
-            className="object-cover"
-          />
-          <span>Google</span>
-        </Button>
+        <div className="cursor-not-allowed">
+          <Button
+            variant={"secondary"}
+            size={"lg"}
+            className="h-11 lg:13 text-neutral-700 gap-4 w-full"
+            disabled
+          >
+            <Image
+              src={googleIcon}
+              alt="Google"
+              width={22}
+              height={22}
+              className="object-cover"
+            />
+            <span>Google</span>
+          </Button>
+        </div>
 
-        <Button
-          variant={"secondary"}
-          size={"lg"}
-          className="h-11 lg:13 text-neutral-700 gap-4"
-        >
-          <Image
-            src={githubIcon}
-            alt="GitHub"
-            width={22}
-            height={22}
-            className="object-cover"
-          />
-          <span>GitHub</span>
-        </Button>
+        <div className="cursor-not-allowed">
+          <Button
+            variant={"secondary"}
+            size={"lg"}
+            className="h-11 lg:13 text-neutral-700 gap-4 w-full"
+            disabled
+          >
+            <Image
+              src={githubIcon}
+              alt="GitHub"
+              width={22}
+              height={22}
+              className="object-cover"
+            />
+            <span>GitHub</span>
+          </Button>
+        </div>
       </div>
     </div>
   );

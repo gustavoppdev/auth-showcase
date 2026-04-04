@@ -1,8 +1,12 @@
 import { z } from "zod";
 
-const emailSchema = z.email("invalidEmailError").min(1, "minEmailError").trim();
+export const emailSchema = z
+  .string()
+  .min(1, "minEmailError")
+  .trim()
+  .email("invalidEmailError");
 
-const passwordSchema = z
+export const passwordSchema = z
   .string()
   .min(6, "minPasswordError")
   .max(20, "maxPasswordError")
