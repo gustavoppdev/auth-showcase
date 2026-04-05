@@ -1,9 +1,8 @@
 "use client";
 
-// Next.js & Next-Intl
-import { usePathname, useRouter } from "@/i18n/navigation";
-import { useSearchParams } from "next/navigation";
+// Next-Intl & React
 import { useTranslations } from "next-intl";
+import { useEffect } from "react";
 
 // Zod
 import { z } from "zod";
@@ -18,27 +17,14 @@ import { FieldGroup } from "@/components/ui/field";
 import FormInput from "./FormInput";
 import OrContinueWith from "./OrContinueWith";
 
-// Schemas
-import { signInSchema, signUpSchema } from "@/app/[locale]/(home)/schemas";
-import { useEffect } from "react";
+// Lucide Icons & Hooks
+import { Loader2 } from "lucide-react";
+import { useAuthForm } from "@/hooks/useAuthForm";
 
 export const AuthForm = () => {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const pathname = usePathname();
+  const { formSchema, toggleFormType, isLoading, isSignUp, onSubmit } =
+    useAuthForm();
   const t = useTranslations("AuthForm");
-
-  const formType =
-    searchParams.get("type") === "sign-in" ? "sign-in" : "sign-up";
-
-  const isSignUp = formType === "sign-up";
-
-  const formSchema = isSignUp ? signUpSchema : signInSchema;
-
-  const toggleFormType = () => {
-    const newType = isSignUp ? "sign-in" : "sign-up";
-    router.push(`${pathname}?type=${newType}`);
-  };
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -56,18 +42,15 @@ export const AuthForm = () => {
       password: "",
       ...(isSignUp && { confirmPassword: "" }),
     });
-  }, [formType, form, isSignUp]);
+  }, [form, isSignUp]);
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    alert(JSON.stringify({ values }));
-  }
+  const translatedKey = isSignUp ? "signUp" : "signIn";
 
-  const greeting = t(`${isSignUp ? "signUp" : "signIn"}.greeting`);
-  const greetingDescription = t(
-    `${isSignUp ? "signUp" : "signIn"}.greetingDescription`,
-  );
-  const buttonText = t(isSignUp ? "signUpBtn" : "signInBtn");
-  const ctaText = t.rich(`${isSignUp ? "signUp" : "signIn"}.cta`, {
+  const greeting = t(`${translatedKey}.greeting`);
+  const greetingDescription = t(`${translatedKey}.greetingDescription`);
+  const buttonText = t(`${translatedKey}Btn`);
+
+  const ctaText = t.rich(`${translatedKey}.cta`, {
     link: (chunks) => (
       <Button
         variant={"link"}
@@ -142,6 +125,12 @@ export const AuthForm = () => {
 
       {/* Already have an account? Sign in - Sign Up */}
       <p className="self-center text-sm">{ctaText}</p>
+
+      {isLoading && (
+        <div className="absolute inset-0 bg-background/50 z-10 grid place-content-center">
+          <Loader2 className="animate-spin size-10" />
+        </div>
+      )}
     </form>
   );
 };

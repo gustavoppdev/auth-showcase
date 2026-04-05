@@ -26,3 +26,11 @@ export type TestType = {
     code: string;
   }[];
 };
+
+export type OverviewStatType = {
+  title: TranslationKey;
+  value: string;
+  description: TranslationKey;
+  icon: LucideIcon;
+  iconColor: string;
+};

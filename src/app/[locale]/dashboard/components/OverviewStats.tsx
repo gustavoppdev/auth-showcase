@@ -1,12 +1,13 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { OverviewStatsDashboard } from "@/constants";
+import { OverviewStatsArray } from "@/constants";
 import { useTranslations } from "next-intl";
 
 const OverviewStats = () => {
   const t = useTranslations("Dashboard.overviewStats");
+
   return (
     <div className="grid gap-6 md:grid-cols-3 mb-12">
-      {OverviewStatsDashboard.map((stat) => {
+      {OverviewStatsArray.map((stat) => {
         const Icon = stat.icon;
         return (
           <Card

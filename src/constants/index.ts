@@ -1,30 +1,5 @@
-import { DashboardStats, TabDashboard, TestType } from "@/types";
-
-import { CheckCircle2, LayoutTemplate, Activity } from "lucide-react";
-
-export const OverviewStatsDashboard: DashboardStats[] = [
-  {
-    title: "totalTests.title",
-    value: "12",
-    description: "totalTests.description",
-    icon: CheckCircle2,
-    iconColor: "text-emerald-500",
-  },
-  {
-    title: "coverage.title",
-    value: "95%",
-    description: "coverage.description",
-    icon: Activity,
-    iconColor: "text-blue-500",
-  },
-  {
-    title: "implementedTypes.title",
-    value: "2",
-    description: "implementedTypes.description",
-    icon: LayoutTemplate,
-    iconColor: "text-purple-500",
-  },
-];
+import { OverviewStatType, TabDashboard, TestType } from "@/types";
+import { Activity, CheckCircle2, LayoutTemplate } from "lucide-react";
 
 export const IntegrationTests: TestType[] = [
   {
@@ -412,6 +387,91 @@ export const UnitTests: TestType[] = [
   },
 ];
 
+export const EndToEndTests: TestType[] = [
+  {
+    title: "e2e.tests.authFlowSuite.title",
+    description: "e2e.tests.authFlowSuite.description",
+    archive: "authenticationFlow.spec.ts",
+    tests: [
+      {
+        title: "e2e.tests.authFlowSuite.beforeEach.title",
+        description: "e2e.tests.authFlowSuite.beforeEach.description",
+        code: `test.beforeEach(async ({ page }) => {
+      await page.goto("http://localhost:3000/en");
+    });`,
+      },
+      {
+        title: "e2e.tests.authFlowSuite.test1.title",
+        description: "e2e.tests.authFlowSuite.test1.description",
+        code: `test("should successfully log in and redirect to the dashboard", async ({
+            page,
+          }) => {
+            const emailInput = page.getByRole("textbox", {
+              name: messages.AuthForm.email,
+              exact: true,
+            });
+            await emailInput.waitFor({ state: "visible" });
+            await emailInput.click();
+            await emailInput.fill("tester@showcase.com");
+        
+            await page
+              .getByRole("textbox", { name: messages.AuthForm.password, exact: true })
+              .fill("SenhaForte123!");
+        
+            await page
+              .getByRole("textbox", {
+                name: messages.AuthForm.confirmPassword,
+                exact: true,
+              })
+              .fill("SenhaForte123!");
+        
+            await page
+              .getByRole("button", { name: messages.AuthForm.signUpBtn })
+              .click();
+        
+            await expect(page).toHaveURL(/.*\/dashboard/);
+            await expect(page.getByText("Testing Showcase")).toBeVisible();
+          });`,
+      },
+      {
+        title: "e2e.tests.authFlowSuite.test2.title",
+        description: "e2e.tests.authFlowSuite.test2.description",
+        code: `test("should prevent access to dashboard without authentication", async ({ page }) => {
+      await page.goto("http://localhost:3000/en/dashboard");
+      
+      const currentUrl = page.url();
+      expect(currentUrl.endsWith("/en") || currentUrl.endsWith("/")).toBeTruthy();
+      
+      await expect(page.getByRole("button", { name: messages.AuthForm.signUpBtn })).toBeVisible();
+    });`,
+      },
+      {
+        title: "e2e.tests.authFlowSuite.test3.title",
+        description: "e2e.tests.authFlowSuite.test3.description",
+        code: `test("should display Zod validation errors on invalid submit", async ({ page }) => {
+      await page.getByRole("button", { name: "Sign Up" }).click();
+      
+      await expect(page).not.toHaveURL(/.*\\/dashboard/);
+      await expect(page.getByText(messages.AuthForm.Errors.minEmailError)).toBeVisible();
+      await expect(page.getByText(messages.AuthForm.Errors.minPasswordError)).toBeVisible();
+    });`,
+      },
+      {
+        title: "e2e.tests.authFlowSuite.test4.title",
+        description: "e2e.tests.authFlowSuite.test4.description",
+        code: `test("should toggle between Sign Up and Sign In modes via URL", async ({ page }) => {
+      await expect(page.getByRole("textbox", { name: messages.AuthForm.confirmPassword, exact: true })).toBeVisible();
+      
+      await page.getByRole("link", { name: messages.AuthForm.signInBtn }).click();
+      
+      await expect(page).toHaveURL(/.*type=sign-in/);
+      await expect(page.getByRole("textbox", { name: messages.AuthForm.confirmPassword, exact: true })).not.toBeVisible();
+    });`,
+      },
+    ],
+  },
+];
+
 export const TabsDashboard: TabDashboard[] = [
   {
     value: "integration",
@@ -425,9 +485,41 @@ export const TabsDashboard: TabDashboard[] = [
     subtitle: "unit.subtitle",
     content: UnitTests,
   },
-  // {
-  //   value: "e2e",
-  //   title: "e2e.title",
-  //   subtitle: "e2e.subtitle",
-  // },
+  {
+    value: "e2e",
+    title: "e2e.title",
+    subtitle: "e2e.subtitle",
+    content: EndToEndTests,
+  },
+];
+
+const totalTestsCount = TabsDashboard.reduce((acc, tab) => {
+  return (
+    acc +
+    (tab.content?.reduce((sum, suite) => sum + suite.tests.length, 0) || 0)
+  );
+}, 0);
+
+export const OverviewStatsArray: OverviewStatType[] = [
+  {
+    title: "totalTests.title",
+    value: totalTestsCount.toString(),
+    description: "totalTests.description",
+    icon: CheckCircle2,
+    iconColor: "text-emerald-500",
+  },
+  {
+    title: "coverage.title",
+    value: "100%",
+    description: "coverage.description",
+    icon: Activity,
+    iconColor: "text-blue-500",
+  },
+  {
+    title: "implementedTypes.title",
+    value: TabsDashboard.length.toString(),
+    description: "implementedTypes.description",
+    icon: LayoutTemplate,
+    iconColor: "text-purple-500",
+  },
 ];

@@ -1,7 +1,34 @@
-import createMiddleware from "next-intl/middleware";
+import createIntlMiddleware from "next-intl/middleware";
 import { routing } from "./i18n/routing";
+import { NextRequest, NextResponse } from "next/server";
 
-export default createMiddleware(routing);
+const intlMiddleware = createIntlMiddleware(routing);
+
+export default function middleware(request: NextRequest) {
+  const isAuthenticated = request.cookies.has("showcase-auth");
+  const pathname = request.nextUrl.pathname;
+
+  const isDashboardPage = pathname.includes("/dashboard");
+  const isHomePage =
+    pathname === "/" ||
+    routing.locales.some((locale) => pathname === `/${locale}`);
+
+  if (isDashboardPage && !isAuthenticated) {
+    return NextResponse.redirect(new URL("/", request.url));
+  }
+
+  if (isHomePage && isAuthenticated) {
+    const localePrefix = routing.locales.find((locale) =>
+      pathname.startsWith(`/${locale}`),
+    );
+    return NextResponse.redirect(
+      new URL(`${localePrefix}/dashboard`, request.url),
+    );
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return intlMiddleware(request as any);
+}
 
 export const config = {
   // Match all pathnames except for
