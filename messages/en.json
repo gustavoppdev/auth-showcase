@@ -24,8 +24,8 @@
     "hidePassword": "Hide password",
     "Errors": {
       "minEmailError": "Please enter your email",
-      "minPasswordError": "Password is required",
-      "maxPasswordError": "Password is too long (max 20 characters)",
+      "minPasswordError": "The password must be at least 8 characters long.",
+      "maxPasswordError": "The password must be a maximum of 20 characters long.",
       "mustContainUppercase": "Must include at least one uppercase letter",
       "mustContainLowercase": "Must include at least one lowercase letter",
       "mustContainNumber": "Must include at least one number",
@@ -48,7 +48,7 @@
       },
       "implementedTypes": {
         "title": "Implemented Types",
-        "description": "Unit and Integration"
+        "description": "Unit, Integration and E2E"
       }
     },
     "tabs": {
@@ -191,8 +191,34 @@
         }
       },
       "e2e": {
-        "title": "End-to-End (Coming Soon)",
-        "subtitle": "End-to-End Tests"
+        "title": "End-to-End",
+        "subtitle": "End-to-End Tests (Playwright)",
+        "tests": {
+          "authFlowSuite": {
+            "title": "Authentication Flow Tests",
+            "description": "Validates the entire user journey using a real automated browser.",
+            "beforeEach": {
+              "title": "Ações Prévias (Before Each)",
+              "description": "Prepares the environment by navigating to the localized base URL before every test."
+            },
+            "test1": {
+              "title": "Successful Sign Up & Redirect",
+              "description": "Simulates filling the form with valid data, submitting, and awaiting dashboard redirection."
+            },
+            "test2": {
+              "title": "Middleware Protection",
+              "description": "Directly accesses '/dashboard' and verifies the server intercepts and redirects back to login."
+            },
+            "test3": {
+              "title": "Zod UI Error Handling",
+              "description": "Clicks submit on an empty form and verifies that validation error states map directly to the UI layer."
+            },
+            "test4": {
+              "title": "Layout Toggling",
+              "description": "Clicks UI links to toggle between sign-in and sign-up, ensuring elements like 'Confirm Password' appear properly."
+            }
+          }
+        }
       }
     }
   }
