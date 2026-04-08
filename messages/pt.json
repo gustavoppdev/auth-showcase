@@ -45,7 +45,7 @@
     "email": "E-mail",
     "emailPlaceholder": "Exemplo@email.com",
     "password": "Senha",
-    "passwordPlaceholder": "No mínimo 8 caracteres",
+    "passwordPlaceholder": "No mínimo 6 caracteres",
     "confirmPassword": "Confirmar Senha",
     "confirmPasswordPlaceholder": "Digite a senha novamente",
     "forgotPassword": "Esqueceu a senha?",
