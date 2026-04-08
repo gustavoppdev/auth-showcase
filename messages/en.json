@@ -1,4 +1,17 @@
 {
+  "NavigationBar": {
+    "logout": "Logout"
+  },
+  "Metadata": {
+    "title": "Auth Showcase",
+    "description": "A modern and secure authentication experience built with Next.js.",
+    "keywords": "next.js, react, authentication, zod, security, showcase",
+    "openGraph": {
+      "title": "Auth Showcase",
+      "description": "A modern and secure authentication experience built with Next.js.",
+      "site_name": "Auth Showcase"
+    }
+  },
   "AuthForm": {
     "signIn": {
       "greeting": "Welcome Back 👋",
@@ -24,7 +37,7 @@
     "hidePassword": "Hide password",
     "Errors": {
       "minEmailError": "Please enter your email",
-      "minPasswordError": "The password must be at least 8 characters long.",
+      "minPasswordError": "The password must be at least 6 characters long.",
       "maxPasswordError": "The password must be a maximum of 20 characters long.",
       "mustContainUppercase": "Must include at least one uppercase letter",
       "mustContainLowercase": "Must include at least one lowercase letter",
@@ -103,6 +116,10 @@
             "test1": {
               "title": "Display Zod Errors",
               "description": "Confirms error messages display when submitting invalid payloads."
+            },
+            "test2": {
+              "title": "Valid Form Submission",
+              "description": "Tests handling of valid data and UI interaction leading to a route change, bypassing hook delay with 'waitFor'."
             }
           }
         }
@@ -220,6 +237,25 @@
           }
         }
       }
+    }
+  },
+  "Others": {
+    "LanguageSwitcher": {
+      "changeLanguage": "Change Language",
+      "portuguese": "Portuguese",
+      "english": "English"
+    },
+    "NotFoundPage": {
+      "code": "404",
+      "title": "Page not found",
+      "description": "Sorry, we couldn’t find the page you’re looking for.",
+      "goBackHomeBtn": "Go back home"
+    },
+    "Theme": {
+      "toggleTheme": "Toggle theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
     }
   }
 }

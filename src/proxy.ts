@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 const intlMiddleware = createIntlMiddleware(routing);
 
 export default function middleware(request: NextRequest) {
-  const isAuthenticated = request.cookies.has("showcase-auth");
+  const isAuthenticated = request.cookies.get("showcase-auth")?.value;
   const pathname = request.nextUrl.pathname;
 
   const isDashboardPage = pathname.includes("/dashboard");

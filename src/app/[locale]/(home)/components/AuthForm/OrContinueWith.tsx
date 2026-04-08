@@ -14,7 +14,7 @@ const OrContinueWith = () => {
     <div className="flex flex-col items-center gap-4 w-full">
       <div className="flex justify-between items-center gap-4 w-full">
         <span className="w-full h-px bg-border" />
-        <h2 className="whitespace-nowrap text-neutral-700 text-sm">
+        <h2 className="whitespace-nowrap text-foreground text-sm">
           {t("continueWith")}
         </h2>
         <span className="w-full h-px bg-border" />

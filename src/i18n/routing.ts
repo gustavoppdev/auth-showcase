@@ -7,3 +7,5 @@ export const routing = defineRouting({
   // Used when no locale matches
   defaultLocale: "pt",
 });
+
+export type LocaleType = (typeof routing.locales)[number];

@@ -54,7 +54,7 @@ export const AuthForm = () => {
     link: (chunks) => (
       <Button
         variant={"link"}
-        className="text-indigo-600 font-normal"
+        className="text-indigo-600 dark:text-indigo-500 font-normal"
         onClick={toggleFormType}
         type="button"
         role="link"
@@ -71,8 +71,8 @@ export const AuthForm = () => {
     >
       {/* Greetings */}
       <div className="flex flex-col gap-4">
-        <h1 className="text-2xl lg:text-4xl font-medium">{greeting}</h1>
-        <p className="text-muted-foreground lg:text-xl">
+        <h1 className="text-2xl lg:text-3xl font-medium">{greeting}</h1>
+        <p className="text-muted-foreground lg:text-lg">
           {greetingDescription}
         </p>
       </div>
@@ -109,7 +109,7 @@ export const AuthForm = () => {
           <Button
             variant={"link"}
             type="button"
-            className="text-indigo-600 self-end font-normal"
+            className="text-indigo-600 dark:text-indigo-500 self-end font-normal"
           >
             {t("forgotPassword")}
           </Button>

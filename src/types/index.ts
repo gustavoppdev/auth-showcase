@@ -1,6 +1,12 @@
+import { LocaleType } from "@/i18n/routing";
 import { LucideIcon } from "lucide-react";
 
 type TranslationKey = string;
+
+export type LocalesArrayType = {
+  key: LocaleType;
+  labelKey: string;
+};
 
 export type DashboardStats = {
   title: TranslationKey;

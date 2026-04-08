@@ -1,5 +1,21 @@
-import { OverviewStatType, TabDashboard, TestType } from "@/types";
+import {
+  LocalesArrayType,
+  OverviewStatType,
+  TabDashboard,
+  TestType,
+} from "@/types";
 import { Activity, CheckCircle2, LayoutTemplate } from "lucide-react";
+
+export const LocalesArray: LocalesArrayType[] = [
+  {
+    key: "pt",
+    labelKey: "portuguese",
+  },
+  {
+    key: "en",
+    labelKey: "english",
+  },
+];
 
 export const IntegrationTests: TestType[] = [
   {
@@ -171,6 +187,39 @@ export const IntegrationTests: TestType[] = [
       expect(
         await screen.findByText(messages.AuthForm.Errors.minPasswordError),
       ).toBeInTheDocument();
+    });`,
+      },
+      {
+        title: "integration.tests.zodSubmissionSuite.test2.title",
+        description: "integration.tests.zodSubmissionSuite.test2.description",
+        code: `it("should call the onSubmit function when the form is valid", async () => {
+      searchParamsValue = "sign-in";
+
+      const pushMock = vi.fn();
+      vi.mocked(i18nNavigation.useRouter).mockReturnValue({
+        push: pushMock,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } as any);
+      renderWithIntl(<AuthForm />);
+
+      const emailInput = screen.getByLabelText(messages.AuthForm.email);
+      const passwordInput = screen.getByLabelText(messages.AuthForm.password);
+
+      fireEvent.change(emailInput, { target: { value: "teste@example.com" } });
+      fireEvent.change(passwordInput, { target: { value: "SenhaSegura123!" } });
+
+      const submitButton = screen.getByRole("button", {
+        name: messages.AuthForm.signInBtn,
+      });
+
+      fireEvent.click(submitButton);
+
+      await waitFor(
+        () => {
+          expect(pushMock).toHaveBeenCalledWith("/dashboard");
+        },
+        { timeout: 2000 },
+      );
     });`,
       },
     ],
