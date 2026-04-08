@@ -21,9 +21,12 @@ export default function middleware(request: NextRequest) {
     const localePrefix = routing.locales.find((locale) =>
       pathname.startsWith(`/${locale}`),
     );
-    return NextResponse.redirect(
-      new URL(`${localePrefix}/dashboard`, request.url),
-    );
+
+    const redirectPath = localePrefix
+      ? `/${localePrefix}/dashboard`
+      : "/dashboard";
+
+    return NextResponse.redirect(new URL(redirectPath, request.url));
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

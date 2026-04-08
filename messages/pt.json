@@ -3,12 +3,12 @@
     "logout": "Sair"
   },
   "Metadata": {
-    "title": "Auth Showcase",
-    "description": "Experiência de autenticação moderna e segura construída com Next.js.",
-    "keywords": "next.js, react, autenticação, zod, segurança, showcase",
+    "title": "Auth Showcase | Suítes de Testes",
+    "description": "Demonstração prática de testes Unitários, de Integração e E2E aplicados a um fluxo de autenticação seguro com Next.js, Zod e Playwright.",
+    "keywords": "next.js, react, testes, vitest, playwright, zod, e2e, integração, showcase, qa",
     "openGraph": {
-      "title": "Auth Showcase",
-      "description": "Experiência de autenticação moderna e segura construída com Next.js.",
+      "title": "Auth Showcase | Suítes de Testes",
+      "description": "Demonstração prática de testes Unitários, de Integração e E2E aplicados a um fluxo de autenticação seguro com Next.js, Zod e Playwright.",
       "site_name": "Auth Showcase"
     }
   },
@@ -75,7 +75,7 @@
         "description": "Total de testes executados"
       },
       "coverage": {
-        "title": "Cobertura (Coverage)",
+        "title": "Cobertura (Vitest)",
         "description": "Linhas de código base"
       },
       "implementedTypes": {

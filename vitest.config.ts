@@ -12,5 +12,8 @@ export default defineConfig({
     alias: {
       "@": path.resolve(__dirname, "./src"), // Faz o Vitest entender o '@/' do Next.js
     },
+    coverage: {
+      provider: "v8",
+    },
   },
 });
