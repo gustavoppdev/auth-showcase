@@ -54,11 +54,11 @@ export async function generateMetadata({
     title: t("title"),
     description: t("description"),
     keywords: t.raw("keywords"),
-    // metadataBase: new URL(""),
+    metadataBase: new URL("https://auth-showcase-sigma.vercel.app"),
     openGraph: {
       title: t("openGraph.title"),
       description: t("openGraph.description"),
-      // url: "",
+      url: "https://auth-showcase-sigma.vercel.app",
       images: [
         {
           url: "/og-image.webp",
@@ -75,7 +75,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: t("openGraph.title"),
       description: t("openGraph.description"),
-      // images: ["https:///og-image.webp"],
+      images: ["/og-image.webp"],
     },
     authors: [{ name: "Gustavo Henrique" }],
     creator: "Gustavo Henrique",

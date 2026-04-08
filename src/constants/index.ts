@@ -559,7 +559,7 @@ export const OverviewStatsArray: OverviewStatType[] = [
   },
   {
     title: "coverage.title",
-    value: "100%",
+    value: "84.04%",
     description: "coverage.description",
     icon: Activity,
     iconColor: "text-blue-500",

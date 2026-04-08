@@ -9,6 +9,7 @@
     "lint": "eslint",
     "test": "vitest",
     "test:ui": "vitest --ui",
+    "coverage": "vitest run --coverage",
     "playwright": "exec playwright test",
     "playwright:ui": "exec playwright test --ui"
   },
