@@ -1,8 +1,17 @@
-import { renderWithIntl } from "@/test/render-with-intl";
-import { AuthForm } from "./AuthForm/index";
+// Vitest
 import { describe, expect, it, vi } from "vitest";
+
+// React Testing Library
+import { fireEvent, screen, waitFor } from "@testing-library/react";
+
+// Next-Intl
+import { renderWithIntl } from "@/test/render-with-intl";
+
+// Components
+import { AuthForm } from "./AuthForm";
+
+// Messages
 import messages from "@/../messages/en.json";
-import { fireEvent, screen } from "@testing-library/react";
 
 let searchParamsValue: "sign-in" | "sign-up" = "sign-in";
 
@@ -150,6 +159,34 @@ describe("Conjunto de Testes: AuthForm", () => {
       ).toBeInTheDocument();
     });
 
-    // it("should call the onSubmit function when the form is valid", () => {});
+    it("should call the onSubmit function when the form is valid", async () => {
+      searchParamsValue = "sign-in";
+
+      const pushMock = vi.fn();
+      vi.mocked(i18nNavigation.useRouter).mockReturnValue({
+        push: pushMock,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } as any);
+      renderWithIntl(<AuthForm />);
+
+      const emailInput = screen.getByLabelText(messages.AuthForm.email);
+      const passwordInput = screen.getByLabelText(messages.AuthForm.password);
+
+      fireEvent.change(emailInput, { target: { value: "teste@example.com" } });
+      fireEvent.change(passwordInput, { target: { value: "SenhaSegura123!" } });
+
+      const submitButton = screen.getByRole("button", {
+        name: messages.AuthForm.signInBtn,
+      });
+
+      fireEvent.click(submitButton);
+
+      await waitFor(
+        () => {
+          expect(pushMock).toHaveBeenCalledWith("/dashboard");
+        },
+        { timeout: 2000 },
+      );
+    });
   });
 });

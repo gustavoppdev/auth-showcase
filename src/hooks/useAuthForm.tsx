@@ -36,9 +36,8 @@ export const useAuthForm = () => {
 
         new Promise((resolve) => setTimeout(resolve, 1000)).then(() => {
           setIsLoading(false);
-          // Grava o cookie "fake auth" que será lido pelo middleware
-          document.cookie =
-            "showcase-auth=true; path=/; max-age=86400; SameSite=Lax";
+          // Grava o cookie que será lido pelo middleware
+          document.cookie = "showcase-auth=true; path=/; SameSite=Lax";
 
           // Pequeno delay para garantir que o WebKit (Safari) registre o cookie
           // antes do Next.js disparar o fetch de navegação interna (RSC)
@@ -52,6 +51,11 @@ export const useAuthForm = () => {
     }
   }
 
+  const handleLogout = () => {
+    document.cookie = "showcase-auth=; path=/; SameSite=Lax";
+    router.push("/");
+  };
+
   return {
     isLoading,
     setIsLoading,
@@ -59,5 +63,6 @@ export const useAuthForm = () => {
     isSignUp,
     toggleFormType,
     onSubmit,
+    handleLogout,
   };
 };

@@ -1,4 +1,36 @@
 {
+  "NavigationBar": {
+    "logout": "Sair"
+  },
+  "Metadata": {
+    "title": "Auth Showcase",
+    "description": "Experiência de autenticação moderna e segura construída com Next.js.",
+    "keywords": "next.js, react, autenticação, zod, segurança, showcase",
+    "openGraph": {
+      "title": "Auth Showcase",
+      "description": "Experiência de autenticação moderna e segura construída com Next.js.",
+      "site_name": "Auth Showcase"
+    }
+  },
+  "Others": {
+    "LanguageSwitcher": {
+      "changeLanguage": "Mudar Idioma",
+      "portuguese": "Português",
+      "english": "Inglês"
+    },
+    "NotFoundPage": {
+      "code": "404",
+      "title": "Página não encontrada",
+      "description": "Desculpe, não conseguimos encontrar a página que você está procurando.",
+      "goBackHomeBtn": "Volte para o inicio"
+    },
+    "Theme": {
+      "toggleTheme": "Alterar tema",
+      "light": "Claro",
+      "dark": "Escuro",
+      "system": "Sistema"
+    }
+  },
   "AuthForm": {
     "signIn": {
       "greeting": "Bom te ver de volta 👋",
@@ -24,7 +56,7 @@
     "hidePassword": "Ocultar senha",
     "Errors": {
       "minEmailError": "Por favor, insira seu e-mail",
-      "minPasswordError": "A senha deve ter no minímo 8 caracteres",
+      "minPasswordError": "A senha deve ter no minímo 6 caracteres",
       "maxPasswordError": "A senha deve ter no máximo 20 caracteres",
       "mustContainUppercase": "Inclua pelo menos uma letra maiúscula",
       "mustContainLowercase": "Inclua pelo menos uma letra minúscula",
@@ -103,6 +135,10 @@
             "test1": {
               "title": "Exibir Erros do Zod",
               "description": "Avalia se os erros saltam na tela ao tentar enviar um formulário vazio."
+            },
+            "test2": {
+              "title": "Submissão Válida do Formulário",
+              "description": "Testa o fluxo fornecendo dados corretos e validados que chamam a função simulando redirecionamento com suporte a async/await."
             }
           }
         }
@@ -202,19 +238,19 @@
               "description": "Prepara o ambiente navegando para a rota base antes da execução de qualquer teste."
             },
             "test1": {
-              "title": "Cadastro e Redirecionamento 🟢",
+              "title": "Cadastro e Redirecionamento",
               "description": "Preenche os campos simulando um usuário humano, submete e aguarda o acesso ao painel."
             },
             "test2": {
-              "title": "Proteção do Middleware 🔒",
+              "title": "Proteção do Middleware",
               "description": "Tenta furar a segurança acessando rotas internas e é interceptado logicamente pelo servidor."
             },
             "test3": {
-              "title": "Renderização de Erros (Zod) 🛑",
+              "title": "Renderização de Erros (Zod)",
               "description": "Provoca submissão assíncrona vazia provando que os campos de form refletem o Zod na tela."
             },
             "test4": {
-              "title": "Interatividade Dinâmica 🔄",
+              "title": "Interatividade Dinâmica",
               "description": "Alterna os links de login/cadastro esperando que elementos como 'Confirm Password' apareçam e sumam."
             }
           }
