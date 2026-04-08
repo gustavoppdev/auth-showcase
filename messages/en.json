@@ -26,7 +26,7 @@
     "email": "Email",
     "emailPlaceholder": "Example@email.com",
     "password": "Password",
-    "passwordPlaceholder": "At least 8 characters",
+    "passwordPlaceholder": "At least 6 characters",
     "confirmPassword": "Confirm Password",
     "confirmPasswordPlaceholder": "Repeat your password",
     "forgotPassword": "Forgot Password?",
